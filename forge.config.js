@@ -6,7 +6,12 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        name: 'GamerApp',
+        icon: 'src/assets/icon',
+        loadingGif: 'src/assets/loading.gif',
+        // setupIcon: 'src/assets/icon.ico',
+      },
     },
     {
       name: '@electron-forge/maker-zip',
