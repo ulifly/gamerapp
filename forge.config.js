@@ -20,6 +20,20 @@ module.exports = {
       name: '@electron-forge/maker-rpm',
       config: {},
     },
+    {
+      name: '@electron-forge/maker-dmg',
+      config: {
+        format: 'ULFO',
+        icon: 'src/assets/icon.icns',
+        title: 'GamerApp',
+        window: {
+          width: 300,
+          height: 200,
+          backgroundColor: '#788290',
+          titleBarBackgroundColor: '##9697d2',
+        },
+      },
+    },
   ],
   plugins: [
     {
