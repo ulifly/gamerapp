@@ -87,8 +87,12 @@ const get_free_games_xbox = () => {
 // render cards
 
 showHtml = (gamefiles) => {
-  const content = document.querySelector('#content-cardsG');
-  let html = '';
+  const contentG = document.querySelector('#content-cardsG');
+  const contentD = document.querySelector('#content-cardsD');
+  const contentS = document.querySelector('#content-cardsS');
+  let htmlG = '';
+  let htmlD = '';
+  let htmlS = '';
   gamefiles.forEach((gamefile, index) => {
     const {
       title,
@@ -102,7 +106,43 @@ showHtml = (gamefiles) => {
     } = gamefile;
     if (type === 'Game') {
       const collapseId = `collapseExample${index}`;
-      html += `
+      htmlG += `
+      <div class="text-bg-custom mb-3">
+        <div class="row g-0">
+          <div class="col-img col-md-4">
+            <img src="${image}" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+            <h6 class="card-title">${title}</h6>
+            <p class="card-text">tipo: ${type}</p>
+             <p class="d-inline-flex gap-1">
+               <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+                 descripción
+               </button>
+             </p>
+              <div class="collapse" id="${collapseId}">
+                <div class="card card-body">
+                  ${description}
+                  <br>
+                  <br>
+                  instrucciones:
+                  <br>
+                  ${instructions}
+                </div>
+
+             <p class="card-text">plataforma: ${platforms}</p>
+              <p class="card-text">Termina ${end_date}</p>
+            
+             </div>
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+         </div>
+        </div>
+       </div>
+        `;
+    } else if (type === 'DLC') {
+      const collapseId = `collapseExample${index}`;
+      htmlD += `
       <div class="text-bg-custom mb-3">
         <div class="row g-0">
           <div class="col-img col-md-4">
@@ -137,10 +177,46 @@ showHtml = (gamefiles) => {
        </div>
         `;
     } else {
+      const collapseId = `collapseExample${index}`;
+      htmlS += `
+      <div class="text-bg-custom mb-3">
+        <div class="row g-0">
+          <div class="col-img col-md-4">
+            <img src="${image}" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+            <h6 class="card-title">${title}</h6>
+            <p class="card-text">tipo: ${type}</p>
+             <p class="d-inline-flex gap-1">
+               <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+                 descripción
+               </button>
+             </p>
+              <div class="collapse" id="${collapseId}">
+                <div class="card card-body">
+                  ${description}
+                  <br>
+                  <br>
+                  instrucciones:
+                  <br>
+                  ${instructions}
+                </div>
 
+             <p class="card-text">plataforma: ${platforms}</p>
+              <p class="card-text">Termina ${end_date}</p>
+            
+             </div>
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+         </div>
+        </div>
+       </div>
+        `;
     }
   });
-  content.innerHTML = html;
+  contentG.innerHTML = htmlG;
+  contentD.innerHTML = htmlD;
+  contentS.innerHTML = htmlS;
 };
 
 // escucha de botones
