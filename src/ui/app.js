@@ -87,7 +87,7 @@ const get_free_games_xbox = () => {
 // render cards
 
 showHtml = (gamefiles) => {
-  const content = document.querySelector('#content-cards');
+  const content = document.querySelector('#content-cardsG');
   let html = '';
   gamefiles.forEach((gamefile, index) => {
     const {
@@ -100,41 +100,45 @@ showHtml = (gamefiles) => {
       platforms,
       open_giveaway_url,
     } = gamefile;
-    const collapseId = `collapseExample${index}`;
-    html += `
-    <div class="text-bg-custom mb-3">
-      <div class="row g-0">
-        <div class="col-img col-md-4">
-          <img src="${image}" class="img-fluid rounded-start">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-           <h6 class="card-title">${title}</h6>
-           <p class="card-text">tipo: ${type}</p>
-            <p class="d-inline-flex gap-1">
-              <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
-                descripción
-              </button>
-            </p>
-            <div class="collapse" id="${collapseId}">
-              <div class="card card-body">
-                ${description}
-                <br>
-                <br>
-                instrucciones:
-                <br>
-                ${instructions}
-              </div>
+    if (type === 'Game') {
+      const collapseId = `collapseExample${index}`;
+      html += `
+      <div class="text-bg-custom mb-3">
+        <div class="row g-0">
+          <div class="col-img col-md-4">
+            <img src="${image}" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+            <h6 class="card-title">${title}</h6>
+            <p class="card-text">tipo: ${type}</p>
+             <p class="d-inline-flex gap-1">
+               <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+                 descripción
+               </button>
+             </p>
+              <div class="collapse" id="${collapseId}">
+                <div class="card card-body">
+                  ${description}
+                  <br>
+                  <br>
+                  instrucciones:
+                  <br>
+                  ${instructions}
+                </div>
+
+             <p class="card-text">plataforma: ${platforms}</p>
+              <p class="card-text">Termina ${end_date}</p>
             
-            <p class="card-text">plataforma: ${platforms}</p>
-            <p class="card-text">Termina ${end_date}</p>
-            
-            </div>
-            <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+             </div>
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+         </div>
         </div>
-      </div>
-     </div>
+       </div>
         `;
+    } else {
+
+    }
   });
   content.innerHTML = html;
 };
