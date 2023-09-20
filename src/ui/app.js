@@ -4,6 +4,7 @@ const btn_pc = document.querySelector('#pc');
 const btn_ps5 = document.querySelector('#ps5');
 const btn_switch = document.querySelector('#switch');
 const btn_xbox = document.querySelector('#xbox');
+const btn_mas = document.querySelector('#about');
 
 /* api key */
 const options = {
@@ -90,9 +91,19 @@ showHtml = (gamefiles) => {
   const contentG = document.querySelector('#content-cardsG');
   const contentD = document.querySelector('#content-cardsD');
   const contentS = document.querySelector('#content-cardsS');
+
+  const contentTitleJG = document.querySelector('#jgtitle');
+  const contentTitleDLC = document.querySelector('#dlctitle');
+  const contentTitleOther = document.querySelector('#othertitle');
+
   let htmlG = '';
   let htmlD = '';
   let htmlS = '';
+
+  const titleJG = 'Juegos gratis';
+  const titleDLC = 'DLC';
+  const titleOther = 'Otros';
+
   gamefiles.forEach((gamefile, index) => {
     const {
       title,
@@ -135,7 +146,7 @@ showHtml = (gamefiles) => {
               <p class="card-text">Termina ${end_date}</p>
             
              </div>
-             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a>
          </div>
         </div>
        </div>
@@ -171,7 +182,7 @@ showHtml = (gamefiles) => {
               <p class="card-text">Termina ${end_date}</p>
             
              </div>
-             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a>
          </div>
         </div>
        </div>
@@ -207,7 +218,7 @@ showHtml = (gamefiles) => {
               <p class="card-text">Termina ${end_date}</p>
             
              </div>
-             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">get</button></a>
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a>
          </div>
         </div>
        </div>
@@ -217,6 +228,49 @@ showHtml = (gamefiles) => {
   contentG.innerHTML = htmlG;
   contentD.innerHTML = htmlD;
   contentS.innerHTML = htmlS;
+  contentTitleJG.innerHTML = titleJG;
+  contentTitleDLC.innerHTML = titleDLC;
+  contentTitleOther.innerHTML = titleOther;
+};
+
+// render mas about
+
+const masAbout = () => {
+  const contentM = document.querySelector('#content-cardsG');
+  const contentD = document.querySelector('#content-cardsD');
+  const contentS = document.querySelector('#content-cardsS');
+
+  const contentTitleJG = document.querySelector('#jgtitle');
+  const contentTitleDLC = document.querySelector('#dlctitle');
+  const contentTitleOther = document.querySelector('#othertitle');
+
+  contentD.innerHTML = '';
+  contentS.innerHTML = '';
+  contentM.innerHTML = '';
+
+  contentTitleJG.innerHTML = '';
+  contentTitleDLC.innerHTML = '';
+  contentTitleOther.innerHTML = '';
+
+  const htmlM = `
+  <div class="card text-center bg-black">
+    <div class="card-header">
+      Donaciones
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <p class="card-text">invítame un cafe.</p>
+    </div>
+    <div class="card-footer">
+      Agradecimientos
+    </div>
+    <div class="card-title">
+        Gracias a mi Esposa que me ha apoyado mucho con mi carrera de programación y por eso pude realizar esta pequeña app, y me permite seguir avanzando, a mis amigos Dante, Elhijo y Leo que me impulso a entrar a este mundo de la programación 
+    </div>
+  </div>
+  `;
+
+  contentM.innerHTML = htmlM;
 };
 
 // escucha de botones
@@ -224,3 +278,4 @@ btn_pc.addEventListener('click', get_free_games_pc);
 btn_ps5.addEventListener('click', get_free_games_ps5);
 btn_switch.addEventListener('click', get_free_games_switch);
 btn_xbox.addEventListener('click', get_free_games_xbox);
+btn_mas.addEventListener('click', masAbout);
