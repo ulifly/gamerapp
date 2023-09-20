@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-
+// const shell = require('../index')
 const btn_pc = document.querySelector('#pc');
 const btn_ps5 = document.querySelector('#ps5');
 const btn_switch = document.querySelector('#switch');
@@ -147,6 +147,7 @@ showHtml = (gamefiles) => {
             
              </div>
              <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a>
+
          </div>
         </div>
        </div>
