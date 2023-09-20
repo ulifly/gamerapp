@@ -11,10 +11,12 @@
   "author": "Ulifly",
   "license": "MIT",
   "dependencies": {
+    "electron": "^26.2.1",
     "bootstrap": "^5.3.2",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
+    "electron": "^26.2.1",
     "@electron-forge/cli": "^6.4.2",
     "@electron-forge/maker-deb": "^6.4.2",
     "@electron-forge/maker-dmg": "^6.4.2",
@@ -22,7 +24,6 @@
     "@electron-forge/maker-squirrel": "^6.4.2",
     "@electron-forge/maker-zip": "^6.4.2",
     "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
-    "electron": "^26.2.1",
     "electron-webpack-quick-start": "^0.0.7",
     "eslint": "^8.49.0",
     "eslint-config-airbnb-base": "^15.0.0",
