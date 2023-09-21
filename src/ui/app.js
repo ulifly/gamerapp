@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-// const { shell } = require('../index');
 
 const btn_pc = document.querySelector('#pc');
 const btn_ps5 = document.querySelector('#ps5');
@@ -271,6 +270,9 @@ const masAbout = () => {
         Gracias a mi Esposa que me ha apoyado mucho con mi carrera de programación y por eso pude realizar esta pequeña app, y me permite seguir avanzando, a mis amigos Dante, Elhijo y Leo que me impulso a entrar a este mundo de la programación 
     </div>
   </div>
+  <div>
+  </div>
+  })
   `;
 
   contentM.innerHTML = htmlM;

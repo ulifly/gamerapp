@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 
-const { BrowserWindow, ipcMain } = require('electron');
+const { BrowserWindow } = require('electron');
+const { shell } = require('electron');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -10,6 +11,10 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    win.webContents.on('will-attach-webview', (event, webPreferences) => {
+      webPreferences.enableBlinkFeatures = 'Auxclick';
+      delete webPreferences.preload;
+    }),
   });
 
   win.loadFile('./src/index.html');
