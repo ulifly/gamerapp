@@ -147,7 +147,7 @@ showHtml = (gamefiles) => {
             
              </div>
              <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a>
-             <button id="ver" class="btn btn-outline-danger" onclick="open_giveaway_url()">ver</button>
+             <button class="btn btn-outline-danger" onclick="openExternalURL('${open_giveaway_url}">ver</button>
 
          </div>
         </div>
