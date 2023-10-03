@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-const { BrowserWindow } = require('electron');
+const { BrowserWindow, shell } = require('electron');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -13,6 +13,7 @@ function createWindow() {
   });
 
   win.loadFile('./src/index.html');
+  win.shell = shell;
 }
 
 module.exports = { createWindow };

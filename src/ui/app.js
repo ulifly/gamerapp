@@ -5,6 +5,9 @@ const btn_ps5 = document.querySelector('#ps5');
 const btn_switch = document.querySelector('#switch');
 const btn_xbox = document.querySelector('#xbox');
 const btn_mas = document.querySelector('#about');
+const pizzaLink = document.querySelector('#pizza');
+
+// const { ipcRenderer }
 
 /* api key */
 const options = {
@@ -115,6 +118,7 @@ showHtml = (gamefiles) => {
       platforms,
       open_giveaway_url,
     } = gamefile;
+
     if (type === 'Game') {
       const collapseId = `collapseExample${index}`;
       htmlG += `
@@ -146,8 +150,7 @@ showHtml = (gamefiles) => {
               <p class="card-text">Termina ${end_date}</p>
             
              </div>
-             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a>
-             
+             <a href="${open_giveaway_url}" target="_blank"><button class="btn btn-outline-danger">obtener</button></a> -danger">obtener</a>
 
          </div>
         </div>
@@ -267,7 +270,7 @@ const masAbout = () => {
       Agradecimientos
     </div>
     <div class="card-title">
-        Gracias a mi Esposa que me ha apoyado mucho con mi carrera de programación y por eso pude realizar esta pequeña app, y me permite seguir avanzando, a mis amigos Dante, Elhijo y Leo que me impulso a entrar a este mundo de la programación 
+       <button id='btnLink' class="btn btn-outline-danger">Invítame una pizza</button></a >
     </div>
   </div>
   <div>
